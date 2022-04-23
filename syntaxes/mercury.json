@@ -5,6 +5,7 @@
     "patterns": [
         { "include": "#comment" },
         { "include": "#declaration" },
+        { "include": "#literal" },
         { "include": "#goal" },
         { "include": "#name" }
     ],
@@ -72,6 +73,16 @@
         "mode-declaration": {
             "name": "storage.modifier.mode.mercury",
             "match": "\\bmode\\b"
+        },
+        "literal": {
+            "patterns": [
+                { "include": "#string-literal" }
+            ]
+        },
+        "string-literal": {
+            "name": "string.double-quoted-string.mercury",
+            "begin": "\"",
+            "end": "\""
         },
         "goal": {
             "patterns": [
