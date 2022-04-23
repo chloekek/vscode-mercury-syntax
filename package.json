@@ -1,0 +1,27 @@
+{
+    "name": "vscode-mercury-syntax",
+    "displayName": "Mercury language syntax",
+    "description": "Mercury language syntax",
+    "version": "0.0.0",
+    "publisher": "chloekek",
+    "engines": {
+        "vscode": "^1.57.0"
+    },
+    "contributes": {
+        "grammars": [
+            {
+                "language": "mercury",
+                "scopeName": "source.mercury",
+                "path": "./syntaxes/mercury.json"
+            }
+        ],
+        "languages": [
+            {
+                "id": "mercury",
+                "extensions": [ ".m" ],
+                "aliases": [ "Mercury" ],
+                "configuration": "./lang-configs/mercury.json"
+            }
+        ]
+    }
+}

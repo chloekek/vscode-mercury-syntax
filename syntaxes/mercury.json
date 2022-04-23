@@ -1,0 +1,105 @@
+{
+    "fileTypes": [ "m" ],
+    "name": "Mercury",
+    "scopeName": "source.mercury",
+    "patterns": [
+        { "include": "#comment" },
+        { "include": "#declaration" },
+        { "include": "#goal" },
+        { "include": "#name" }
+    ],
+    "repository": {
+        "comment": {
+            "patterns": [
+                { "include": "#block-comment" },
+                { "include": "#line-comment" }
+            ]
+        },
+        "block-comment": {
+            "name": "comment.block.mercury",
+            "begin": "/\\*",
+            "end": "\\*/"
+        },
+        "line-comment": {
+            "name": "comment.line.mercury",
+            "match": "%.*$"
+        },
+        "declaration": {
+            "patterns": [
+                { "include": "#module-declaration" },
+                { "include": "#interface-declaration" },
+                { "include": "#implementation-declaration" },
+                { "include": "#import_module-declaration" },
+                { "include": "#use_module-declaration" },
+                { "include": "#type-declaration" },
+                { "include": "#pred-declaration" },
+                { "include": "#func-declaration" },
+                { "include": "#mode-declaration" }
+            ]
+        },
+        "module-declaration": {
+            "name": "keyword.other.module.mercury",
+            "match": "\\bmodule\\b"
+        },
+        "interface-declaration": {
+            "name": "keyword.other.interface.mercury",
+            "match": "\\binterface\\b"
+        },
+        "implementation-declaration": {
+            "name": "keyword.other.implementation.mercury",
+            "match": "\\bimplementation\\b"
+        },
+        "import_module-declaration": {
+            "name": "keyword.control.import_module.mercury",
+            "match": "\\bimport_module\\b"
+        },
+        "use_module-declaration": {
+            "name": "keyword.control.use_module.mercury",
+            "match": "\\buse_module\\b"
+        },
+        "type-declaration": {
+            "name": "storage.type.type.mercury",
+            "match": "\\btype\\b"
+        },
+        "pred-declaration": {
+            "name": "storage.type.predicate.mercury",
+            "match": "\\bpred\\b"
+        },
+        "func-declaration": {
+            "name": "storage.type.function.mercury",
+            "match": "\\bfunc\\b"
+        },
+        "mode-declaration": {
+            "name": "storage.modifier.mode.mercury",
+            "match": "\\bmode\\b"
+        },
+        "goal": {
+            "patterns": [
+                { "include": "#operator-goal" },
+                { "include": "#keyword-goal" }
+            ]
+        },
+        "operator-goal": {
+            "name": "keyword.operator.control.mercury",
+            "match": "[,&;=]|\\\\\\+|<=>|=>|<=|--->|->|\\=|:-"
+        },
+        "keyword-goal": {
+            "name": "keyword.control.mercury",
+            "match": "\\b(?:some|all|true|fail|not|if|then|else|call|promise_pure|promise_semipure|promise_impure|promise_equivalent_solutions|promise_equivalent_solution_sets|require_det|require_semidet|require_multi|require_nondet|require_cc_multi|require_cc_nondet|require_erroneous|require_failure|require_complete_switch|require_switch_arms_det|require_switch_arms_semidet|require_switch_arms_multi|require_switch_arms_nondet|require_switch_arms_cc_multi|require_switch_arms_cc_nondet|require_switch_arms_erroneous|require_switch_arms_failure|disable_warnings|disable_warning|trace|try|catch|event)\\b"
+        },
+        "name": {
+            "patterns": [
+                { "include": "#variable-name" },
+                { "include": "#procedure-name" }
+            ]
+        },
+        "variable-name": {
+            "name": "variable.other.mercury",
+            "match": "(?:![.:]?)?\\b[A-Z][A-Za-z0-9_]*\\b"
+        },
+        "procedure-name": {
+            "name": "entity.name.function.mercury",
+            "match": "\\b[a-z][A-Za-z0-9_]*(?=\\()"
+        }
+    }
+}
