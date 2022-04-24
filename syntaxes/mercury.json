@@ -82,7 +82,13 @@
         "string-literal": {
             "name": "string.double-quoted-string.mercury",
             "begin": "\"",
-            "end": "\""
+            "end": "\"(?!\")",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.mercury",
+                    "match": "\\\\(?:x[A-Fa-f0-9]+\\\\|[0-7]+\\\\|u[A-Fa-f0-9]{4}|U[A-Fa-f0-9]{8}|[abrftnv\\\\\\'\\\"])|\"\""
+                }
+            ]
         },
         "goal": {
             "patterns": [
